@@ -16,7 +16,11 @@ def import_values():
     l = data['m2m:cin']['con'].split()
     model.temp = l[1]
     model.humidity = l[0]
-    # shabbydo
+    model.energy_1 = l[2]
+    model.energy_2 = l[3]
+    model.energy_3 = l[4]
+    model.energy_4 = l[5]
+    model.energy_5 = l[6]
 
     model.save()
 

@@ -7,9 +7,9 @@ uint8_t newdata[24][4];
 #include "HTTPClient.h"
 #include "ArduinoJson.h"
 
-char* wifi_ssid = "227kachu";
-char* wifi_pwd = "pleasehappi";
-String cse_ip = "192.168.43.93";
+char* wifi_ssid = "OnePlus6TLOL";
+char* wifi_pwd = "istasisistasis";
+String cse_ip = "139.59.42.21";
  
 // SI7021 I2C address is 0x40(64)
 #define si7021Addr 0x40
@@ -28,8 +28,8 @@ String createCI(String server, String ae, String cnt, String val)
   http.begin(server + ae + "/" + cnt + "/");
   http.addHeader("X-M2M-Origin", "admin:admin");
   http.addHeader("Content-Type", "application/json;ty=4");
-  http.addHeader("Content-Length", "100");
-  http.addHeader("Connection", "close");
+//  http.addHeader("Content-Length", "100");
+//  http.addHeader("Connection", "close");
   int code = http.POST("{\"m2m:cin\": {\"cnf\": \"text/plain:0\",\"con\": "+ String(val) +"}}");
   http.end();
   Serial.println(String(val));
@@ -196,6 +196,6 @@ void loop() {
 //  Serial.println(sensor_string);
 
   // Send data to OneM2M server
-  createCI(server, "campus_energy_demand", "node_1", sensor_string);
-  delay(15000); // DO NOT CHANGE THIS LINE
+  createCI(server, "Team32_Campus_energy_and_demand_dashboard", "pr_1_esp32_1", sensor_string);
+  delay(20000); // DO NOT CHANGE THIS LINE
 }
