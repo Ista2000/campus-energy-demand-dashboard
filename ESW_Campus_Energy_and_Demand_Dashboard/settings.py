@@ -27,7 +27,7 @@ SECRET_KEY = 'e1j92u71o4*0tca-(0f1raov#%$u0^lh$x8e@kf$!6&n^^%if$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['68.183.83.253']
+ALLOWED_HOSTS = ['68.183.83.253', '127.0.0.1']
 
 
 # Application definition
@@ -127,7 +127,7 @@ CELERY_TIMEZONE = 'Asia/Makassar'
 CELERY_BEAT_SCHEDULE = {
     'task-one': {
         'task': 'mainapp.tasks.import_values',
-        'schedule': timedelta(seconds=25)
+        'schedule': timedelta(hours=1)
     },
     'task-two': {
         'task': 'mainapp.tasks.delete_values',
@@ -135,7 +135,7 @@ CELERY_BEAT_SCHEDULE = {
     }
 }
 
-OneM2M_IP = "192.168.43.93"
+OneM2M_IP = "onem2m.iiit.ac.in"
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'

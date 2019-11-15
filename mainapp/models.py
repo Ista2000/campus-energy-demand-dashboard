@@ -10,6 +10,11 @@ class MainModel(models.Model):
 	energy_3 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
 	energy_4 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
 	energy_5 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
+	power_1 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
+	power_2 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
+	power_3 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
+	power_4 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
+	power_5 = models.DecimalField(decimal_places=3, max_digits=13, default=0)
 	time = models.DateTimeField(default=timezone.now)
 
 	def __str__(self):
