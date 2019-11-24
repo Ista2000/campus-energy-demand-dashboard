@@ -8,9 +8,9 @@ from .fusioncharts import FusionCharts
 
 
 def index(request):
-    time_threshold = datetime.now() - timedelta(hours=100)
+    # time_threshold = datetime.now() - timedelta(hours=100)
 
-    l = MainModel.objects.filter(time__gte=time_threshold)
+    l = MainModel.objects.filter()
 
     data_source = [OrderedDict(), OrderedDict(), OrderedDict(), OrderedDict(), OrderedDict(), OrderedDict(),
                    OrderedDict(), OrderedDict(), OrderedDict()]
@@ -143,6 +143,9 @@ def index(request):
     i = 1
 
     for model in l[:40]:
+        if model.energy_1 < 4000000000 or model.energy_2 < 5000000000 or model.energy_3 < 6000000000 \
+                or model.energy_4 < 5000000000 or model.energy_5 < 6000000000:
+            continue;
         data_source[0]["data"].append({'label': i, 'value': float(model.temp)})
         data_source[1]["data"].append({'label': i, 'value': float(model.humidity)})
         data_source[2]["data"].append({'label': i, 'value': float(model.energy_1)})
